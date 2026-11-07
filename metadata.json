@@ -1,0 +1,6 @@
+{
+  "name": "BlueWatch - Marine Conservation",
+  "description": "Comprehensive marine conservation platform for tracking marine species, logging field observations, exploring oceanic habitats, and monitoring protected marine sanctuaries.",
+  "requestFramePermissions": [],
+  "majorCapabilities": ["MAJOR_CAPABILITY_SERVER_SIDE_GEMINI_API"]
+}

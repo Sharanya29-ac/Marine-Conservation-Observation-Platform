@@ -1,0 +1,834 @@
+@import "tailwindcss";
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800&display=swap');
+
+/* =====================================
+   BLUEWATCH - MARINE CONSERVATION
+   Main stylesheet
+===================================== */
+
+/* GLOBAL SETTINGS */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+:root {
+    --navy: #06283D;
+    --deep-blue: #0B3954;
+    --ocean: #087E8B;
+    --aqua: #20C9C3;
+    --light-aqua: #B8F3F0;
+    --background: #F2F6F9;
+    --white: #FFFFFF;
+    --text: #183B4E;
+    --muted: #718995;
+    --shadow: 0 8px 25px rgba(6, 40, 61, 0.09);
+    --shadow-lg: 0 16px 36px rgba(6, 40, 61, 0.15);
+}
+
+body {
+    font-family: 'Poppins', sans-serif;
+    background: var(--background);
+    color: var(--text);
+    min-height: 100vh;
+}
+
+button,
+input,
+select,
+textarea {
+    font-family: inherit;
+}
+
+button {
+    cursor: pointer;
+    border: none;
+    transition: 0.3s ease;
+}
+
+.hidden {
+    display: none !important;
+}
+
+/* =====================================
+   LOGIN PAGE
+===================================== */
+
+.login-page {
+    min-height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 20px;
+    background:
+        linear-gradient(135deg, rgba(3, 25, 48, 0.92),
+        rgba(0, 128, 139, 0.78)),
+        url('https://images.unsplash.com/photo-1518837695005-2083093ee35b?auto=format&fit=crop&w=1800&q=85');
+
+    background-size: cover;
+    background-position: center;
+}
+
+.login-box {
+    width: 100%;
+    max-width: 430px;
+    padding: 45px 35px;
+    text-align: center;
+    background: rgba(255, 255, 255, 0.96);
+    border-radius: 22px;
+    box-shadow: 0 20px 60px rgba(0, 0, 0, 0.25);
+    animation: appear 0.7s ease;
+    backdrop-filter: blur(8px);
+}
+
+.login-box h1 {
+    font-size: 38px;
+    color: var(--ocean);
+    margin-bottom: 12px;
+    font-weight: 800;
+    letter-spacing: -0.5px;
+}
+
+.login-box p {
+    color: var(--muted);
+    font-size: 14px;
+    margin-bottom: 28px;
+}
+
+.login-box input,
+.login-box select {
+    width: 100%;
+    padding: 14px;
+    margin-bottom: 20px;
+    border: 1px solid #D6E8E8;
+    border-radius: 10px;
+    outline: none;
+    font-size: 14px;
+    background: white;
+}
+
+.login-box input:focus,
+.login-box select:focus {
+    border-color: var(--aqua);
+    box-shadow: 0 0 0 3px rgba(32, 201, 195, 0.15);
+}
+
+.login-box button {
+    width: 100%;
+    padding: 14px;
+    color: white;
+    font-weight: 600;
+    background: linear-gradient(120deg, var(--ocean), var(--aqua));
+    border-radius: 10px;
+    font-size: 15px;
+}
+
+.login-box button:hover {
+    transform: translateY(-3px);
+    box-shadow: var(--shadow);
+}
+
+/* =====================================
+   MAIN LAYOUT
+===================================== */
+
+#main-website {
+    min-height: 100vh;
+}
+
+.sidebar {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 220px;
+    height: 100vh;
+    padding: 20px 14px;
+    color: white;
+    background: linear-gradient(180deg, #06283D, #087E8B);
+    display: flex;
+    flex-direction: column;
+    z-index: 50;
+    overflow-y: auto;
+    box-shadow: 2px 0 16px rgba(6, 40, 61, 0.12);
+}
+
+.sidebar h2 {
+    font-size: 18px;
+    margin-bottom: 24px;
+    text-align: center;
+    letter-spacing: 0.3px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 8px;
+    font-weight: 700;
+}
+
+.sidebar nav {
+    display: flex;
+    flex-direction: column;
+    gap: 6px;
+}
+
+.sidebar nav a {
+    color: #D8F8F6;
+    text-decoration: none;
+    padding: 10px 12px;
+    border-radius: 9px;
+    font-size: 13px;
+    transition: 0.25s ease;
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    font-weight: 500;
+}
+
+.sidebar nav a:hover,
+.sidebar nav a.active {
+    background: rgba(255, 255, 255, 0.16);
+    color: white;
+    transform: translateX(3px);
+}
+
+.sidebar nav a.active {
+    background: rgba(255, 255, 255, 0.22);
+    font-weight: 600;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+}
+
+#logout-btn {
+    margin-top: auto;
+    padding: 10px 12px;
+    color: white;
+    background: rgba(255, 255, 255, 0.15);
+    border-radius: 8px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 7px;
+    font-weight: 500;
+    font-size: 12px;
+    width: 100%;
+}
+
+#logout-btn:hover {
+    background: #E85D75;
+}
+
+.content {
+    margin-left: 220px;
+    padding: 20px 28px;
+    min-height: 100vh;
+    background: #F8FAFC;
+}
+
+@media (max-width: 1024px) {
+    .content {
+        margin-left: 220px;
+        padding: 16px 20px;
+    }
+}
+
+@media (max-width: 768px) {
+    .sidebar {
+        width: 100%;
+        height: auto;
+        position: relative;
+        padding: 14px 16px;
+    }
+
+    .content {
+        margin-left: 0;
+        padding: 14px;
+    }
+}
+
+.page {
+    animation: appear 0.3s ease;
+    max-width: 1400px;
+    margin: 0 auto;
+}
+
+.page h1 {
+    font-size: 22px;
+    color: var(--navy);
+    margin-bottom: 6px;
+    font-weight: 700;
+    letter-spacing: -0.2px;
+}
+
+.page h2 {
+    font-size: 17px;
+    color: var(--navy);
+    margin-bottom: 8px;
+    font-weight: 600;
+}
+
+.page > p {
+    color: var(--muted);
+    margin-bottom: 18px;
+    line-height: 1.6;
+    font-size: 13px;
+}
+
+/* =====================================
+   DASHBOARD HERO
+===================================== */
+
+.hero {
+    position: relative;
+    overflow: hidden;
+    padding: 45px 40px;
+    margin: 30px 0;
+    border-radius: 20px;
+    color: white;
+    background:
+        linear-gradient(110deg, rgba(5, 39, 63, 0.95),
+        rgba(0, 151, 159, 0.82)),
+        url('https://images.unsplash.com/photo-1518467166778-b88f373ffec7?auto=format&fit=crop&w=1400&q=80');
+
+    background-position: center;
+    background-size: cover;
+    box-shadow: var(--shadow);
+}
+
+.hero h2 {
+    color: white;
+    font-size: 30px;
+    margin-bottom: 12px;
+    font-weight: 700;
+}
+
+.hero p {
+    max-width: 600px;
+    color: #E2FFFF;
+    line-height: 1.8;
+    font-size: 15px;
+}
+
+/* =====================================
+   DASHBOARD STATISTICS
+===================================== */
+
+.stats {
+    display: grid;
+    grid-template-columns: repeat(4, minmax(0, 1fr));
+    gap: 1.5rem;
+    padding: 0.25rem;
+    margin: 0;
+}
+
+@media (max-width: 1024px) {
+    .stats {
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+        gap: 1.25rem;
+    }
+}
+
+@media (max-width: 640px) {
+    .stats {
+        grid-template-columns: 1fr;
+        gap: 1rem;
+        padding: 0;
+    }
+}
+
+.card {
+    padding: 27px 20px;
+    background: white;
+    border-radius: 16px;
+    box-shadow: var(--shadow);
+    border-bottom: 4px solid var(--aqua);
+    transition: 0.3s;
+}
+
+.card:hover {
+    transform: translateY(-6px);
+}
+
+.card h3 {
+    font-size: 34px;
+    color: var(--ocean);
+    margin-bottom: 5px;
+    font-weight: 700;
+}
+
+.card p {
+    color: var(--muted);
+    font-size: 14px;
+    font-weight: 500;
+}
+
+/* =====================================
+   FORM ELEMENTS
+===================================== */
+
+input,
+select,
+textarea {
+    padding: 13px 15px;
+    border: 1px solid #D5E6E9;
+    border-radius: 9px;
+    outline: none;
+    background: white;
+    color: var(--text);
+    font-size: 14px;
+    transition: 0.3s;
+}
+
+input:focus,
+select:focus,
+textarea:focus {
+    border-color: var(--aqua);
+    box-shadow: 0 0 0 3px rgba(32, 201, 195, 0.12);
+}
+
+input::placeholder,
+textarea::placeholder {
+    color: #9AAEB5;
+}
+
+#species-search {
+    width: 100%;
+    max-width: 420px;
+    margin: 15px 10px 20px 0;
+}
+
+#status-filter {
+    margin-bottom: 20px;
+}
+
+/* =====================================
+   BUTTONS
+===================================== */
+
+button:not(.sidebar button) {
+    background: linear-gradient(120deg, var(--ocean), var(--aqua));
+    color: white;
+    padding: 12px 20px;
+    border-radius: 9px;
+    font-weight: 600;
+    font-size: 14px;
+}
+
+button:not(.sidebar button):hover {
+    transform: translateY(-2px);
+    box-shadow: 0 7px 18px rgba(8, 126, 139, 0.2);
+}
+
+button.btn-secondary {
+    background: #EAF4F4;
+    color: var(--deep-blue);
+    border: 1px solid #D1E5E7;
+}
+
+button.btn-secondary:hover {
+    background: #DCEDED;
+    box-shadow: none;
+}
+
+button.btn-danger {
+    background: #FEE2E2;
+    color: #DC2626;
+    border: 1px solid #FECACA;
+}
+
+button.btn-danger:hover {
+    background: #FCA5A5;
+    color: #7F1D1D;
+}
+
+/* =====================================
+   SPECIES DIRECTORY
+===================================== */
+
+.species-grid,
+.habitat-grid {
+    display: grid;
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+    gap: 16px;
+    margin-top: 16px;
+}
+
+@media (max-width: 1024px) {
+    .species-grid,
+    .habitat-grid {
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+        gap: 14px;
+    }
+}
+
+@media (max-width: 640px) {
+    .species-grid,
+    .habitat-grid {
+        grid-template-columns: 1fr;
+        gap: 12px;
+    }
+}
+
+.species-card,
+.habitat-card {
+    background: white;
+    border-radius: 14px;
+    padding: 16px;
+    box-shadow: 0 1px 4px rgba(6, 40, 61, 0.04);
+    transition: 0.25s ease;
+    border: 1px solid #E2E8F0;
+    display: flex;
+    flex-direction: column;
+}
+
+.species-card:hover,
+.habitat-card:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 6px 16px rgba(6, 40, 61, 0.08);
+    border-color: #CBD5E1;
+}
+
+.species-card h3,
+.habitat-card h3 {
+    color: var(--navy);
+    margin-bottom: 6px;
+    font-size: 15px;
+    font-weight: 700;
+}
+
+.species-card p,
+.habitat-card p {
+    color: var(--muted);
+    font-size: 12px;
+    line-height: 1.6;
+    margin-bottom: 8px;
+}
+
+/* =====================================
+   OBSERVATIONS
+===================================== */
+
+#observation-form {
+    display: grid;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 15px;
+    max-width: 850px;
+    padding: 25px;
+    margin: 25px 0;
+    background: white;
+    border-radius: 15px;
+    box-shadow: var(--shadow);
+}
+
+#observation-form textarea {
+    grid-column: span 2;
+    min-height: 110px;
+    resize: vertical;
+}
+
+#observation-form button {
+    grid-column: span 2;
+}
+
+#observation-list {
+    margin-top: 25px;
+}
+
+/* =====================================
+   HABITAT EXPLORER
+===================================== */
+
+.habitat-card {
+    border-top: 4px solid var(--aqua);
+}
+
+.habitat-card h3 {
+    font-size: 19px;
+}
+
+.habitat-card p strong {
+    color: var(--deep-blue);
+}
+
+/* =====================================
+   MARINE MAP EXPLORER
+===================================== */
+
+#marine-map {
+    position: relative;
+    width: 100%;
+    height: 470px;
+    overflow: hidden;
+    margin: 25px 0;
+    border-radius: 20px;
+    border: 5px solid white;
+    box-shadow: var(--shadow);
+
+    background:
+        linear-gradient(rgba(0, 96, 130, 0.1),
+        rgba(0, 96, 130, 0.1)),
+        url('https://images.unsplash.com/photo-1507525428034-b723cf961d3e?auto=format&fit=crop&w=1500&q=85');
+
+    background-size: cover;
+    background-position: center;
+}
+
+#map-pins {
+    position: absolute;
+    inset: 0;
+}
+
+.map-pin {
+    position: absolute;
+    padding: 10px;
+    font-size: 20px;
+    background: white;
+    color: var(--ocean);
+    border: 2px solid var(--aqua);
+    border-radius: 50%;
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 44px;
+    height: 44px;
+    transform: translate(-50%, -50%);
+    transition: transform 0.2s ease, box-shadow 0.2s ease;
+}
+
+.map-pin:hover {
+    transform: translate(-50%, -50%) scale(1.22);
+    box-shadow: 0 8px 22px rgba(32, 201, 195, 0.45);
+    z-index: 10;
+}
+
+.map-pin.active {
+    background: var(--ocean);
+    color: white;
+    border-color: white;
+    transform: translate(-50%, -50%) scale(1.25);
+    box-shadow: 0 0 0 4px rgba(32, 201, 195, 0.5);
+    z-index: 20;
+}
+
+#map-location-details {
+    padding: 24px;
+    margin-top: 15px;
+    background: white;
+    border-radius: 13px;
+    box-shadow: var(--shadow);
+}
+
+/* =====================================
+   REPORTS
+===================================== */
+
+#report-summary {
+    margin: 25px 0;
+    padding: 28px;
+    background: white;
+    border-radius: 15px;
+    box-shadow: var(--shadow);
+}
+
+/* =====================================
+   TOAST NOTIFICATION
+===================================== */
+
+.toast {
+    position: fixed;
+    bottom: 25px;
+    right: 25px;
+    z-index: 100;
+    padding: 14px 22px;
+    color: white;
+    background: var(--navy);
+    border-radius: 10px;
+    box-shadow: var(--shadow-lg);
+    opacity: 0;
+    transform: translateY(20px);
+    pointer-events: none;
+    transition: 0.3s cubic-bezier(0.16, 1, 0.3, 1);
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    font-size: 14px;
+    font-weight: 500;
+    border-left: 4px solid var(--aqua);
+}
+
+.toast.show {
+    opacity: 1;
+    transform: translateY(0);
+}
+
+/* =====================================
+   BADGES & UTILITIES
+===================================== */
+
+.status-badge {
+    display: inline-flex;
+    align-items: center;
+    padding: 3px 9px;
+    border-radius: 9999px;
+    font-size: 11px;
+    font-weight: 600;
+    letter-spacing: 0.3px;
+    text-transform: uppercase;
+}
+
+.status-cr {
+    background: #FEE2E2;
+    color: #DC2626;
+    border: 1px solid #FECACA;
+}
+
+.status-en {
+    background: #FFEDD5;
+    color: #C2410C;
+    border: 1px solid #FED7AA;
+}
+
+.status-vu {
+    background: #FEF3C7;
+    color: #B45309;
+    border: 1px solid #FDE68A;
+}
+
+.status-nt {
+    background: #E0E7FF;
+    color: #4338CA;
+    border: 1px solid #C7D2FE;
+}
+
+.status-lc {
+    background: #DCFCE7;
+    color: #15803D;
+    border: 1px solid #BBF7D0;
+}
+
+/* =====================================
+   ANIMATIONS
+===================================== */
+
+@keyframes appear {
+    from {
+        opacity: 0;
+        transform: translateY(12px);
+    }
+
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+/* =====================================
+   RESPONSIVE DESIGN
+===================================== */
+
+@media (max-width: 1100px) {
+    .species-grid,
+    .habitat-grid {
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+    }
+
+    .content {
+        padding: 25px;
+    }
+}
+
+@media (max-width: 760px) {
+    .sidebar {
+        position: relative;
+        width: 100%;
+        height: auto;
+        padding: 18px;
+    }
+
+    .sidebar h2 {
+        margin-bottom: 18px;
+    }
+
+    .sidebar nav {
+        display: grid;
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+    }
+
+    .sidebar nav a {
+        font-size: 12px;
+        padding: 10px;
+    }
+
+    #logout-btn {
+        margin-top: 15px;
+    }
+
+    .content {
+        margin-left: 0;
+        padding: 20px;
+    }
+
+    .stats {
+        grid-template-columns: 1fr;
+    }
+
+    .species-grid,
+    .habitat-grid {
+        grid-template-columns: 1fr;
+    }
+
+    .hero {
+        padding: 30px 22px;
+    }
+
+    .hero h2 {
+        font-size: 24px;
+    }
+
+    #observation-form {
+        grid-template-columns: 1fr;
+    }
+
+    #observation-form textarea,
+    #observation-form button {
+        grid-column: span 1;
+    }
+
+    #marine-map {
+        height: 350px;
+    }
+}
+
+@media (max-width: 420px) {
+    .page h1 {
+        font-size: 23px;
+    }
+
+    .sidebar nav {
+        grid-template-columns: 1fr;
+    }
+
+    .login-box {
+        padding: 35px 22px;
+    }
+}
+
+/* =====================================
+   CONSISTENT SECTION SPACING
+===================================== */
+.spacing-section {
+    margin-bottom: 1.25rem;
+}
+
+@media (min-width: 640px) {
+    .spacing-section {
+        margin-bottom: 1.5rem;
+    }
+}
+
+@media (min-width: 1024px) {
+    .spacing-section {
+        margin-bottom: 1.75rem;
+    }
+}
+
